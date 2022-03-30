@@ -1,4 +1,4 @@
-# progress_status_2
+# progress_status
 Project of Crazy Thursday
 
 Group name: Crazy Thursday
