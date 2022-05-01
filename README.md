@@ -1,7 +1,8 @@
 # Project of Crazy Thursday
 
 **Project Title: Forecast of Credit Card Approval Based on Vintage Analysis**
-<\br>
+
+
 
 Group name: Crazy Thursday
 
