@@ -1,6 +1,8 @@
 # progress_status
 Project of Crazy Thursday
 
+**Project Title: Forecast of Credit Card Approval Based on Vintage Analysis**
+
 Group name: Crazy Thursday
 
 Group member: Miaoting Feng, Can Song
