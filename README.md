@@ -28,6 +28,8 @@ Thank you for your understanding!
 
 ******
 1) The original data set includes two csv files - application_record.csv and credit_record.csv.
+   
+   The credit_record table is uploaded in the csv form. However, the application_record is uploaded in the compressed format, which is the "credir_record.zip", since it is    too large.
 
 2) The Rmd file is the process and result of how we applied multiple outlier detection methods to part of the application_record.csv.
 
