@@ -8,7 +8,12 @@ Group name: Crazy Thursday
 
 Group member: Miaoting Feng, Can Song
 
-Last updated: 2022/3/30 progress_status_3
+******
+Last updated: 
+
+2022/5/1 practice 4
+
+2022/3/30 progress_status_3
 
 2022/3/10 progress_status_2
 
