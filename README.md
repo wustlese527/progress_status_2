@@ -22,6 +22,7 @@ Thank you for your understanding!
 1) The original data set includes two csv files - application_record.csv and credit_record.csv.
 
 2) The Rmd file is the process and result of how we applied multiple outlier detection methods to part of the application_record.csv.
+
    The pdf file named "Results of outlier detection" contains every result we runned from the Rmd file.
 
 3) The ipynb file contains all the steps we have done in this project, including data preprocessing, brief analysis, model fitting and model performance.
