@@ -1,0 +1,248 @@
+---
+title: "ESE527-practice2"
+author: "Can Song"
+date: "2022/2/25"
+output:
+  html_document:
+    df_print: paged
+---
+
+## Solution of Problem 2: 
+
+First we install and read three packages related to outlier detection mentioned in Practice 2.
+
+```{r}
+library(OutlierDetection)
+library(OutliersO3)
+library(outliers)
+```
+
+The data set we use in our project is called "Credit Card Approval". Here we only extract six features and the first 10,000 rows of the first table "application_record.csv" from the original data set.
+
+The features are: gender, number of children, annual income, education level, marital status and ways of living. We choose to ignore the ID of clients and replace this column with indices. 
+
+In the following part we show the first six rows of the new table "application1.csv".
+
+```{r}
+library(readr)
+library(knitr)
+options(encoding = "UTF-8")
+
+application1 <- read_csv("E:/MS-WUSTL/SP2022/ESE 527/practice2/application.csv", show_col_types = FALSE)
+head(application1)
+```
+
+Considering that some of the features in the table "application1.csv" are demonstrated by words instead of numbers, we change these columns with scalar numbers.
+
+The features that need changes are: gender, education level, marital status and ways of living.
+
+First we find out how many different values each feature has.
+
+```{r}
+gender_val<-unique(application1[,2])
+education_val<-unique(application1[,5])
+marital_val<-unique(application1[,6])
+housing_val<-unique(application1[,7])
+
+library("plyr")
+list1<-list()
+list1[[1]]<-data.frame(t(gender_val))
+list1[[2]]<-data.frame(t(education_val))
+list1[[3]]<-data.frame(t(marital_val))
+list1[[4]]<-data.frame(t(housing_val))
+values<-rbind.fill(list1)
+t(values)
+```
+
+Then we substitute these words with numbers.
+
+For the feature gender, we set 0 for "F" and 1 for "M".
+
+For the education level, we set 1 for "Academic degree", 2 for "Lower secondary", 3 for "Incomplete higher", 4 for "Secondary / secondary special" and 5 for "Higher education".
+
+For the marital status, we set 1 for "Civil marriage", 2 for "Married", 3 for "Single / not married", 4 for "Separated" and 5 for "Widow". 
+
+For the ways of living, we set 1 for "Rented apartment", 2 for "House / apartment", 3 for "Municipal apartment", 4 for "With parents", 5 for "Co-op apartment" and 6 for "Office apartment".
+
+```{r}
+a<-sub("M", "0", application1$CODE_GENDER)
+b<-sub("F", "1", a)
+gender<-as.numeric(b)
+
+a<-sub("Academic degree", "1", application1$NAME_EDUCATION_TYPE)
+b<-sub("Lower secondary", "2", a)
+c<-sub("Incomplete higher", "3", b)
+d<-sub("Secondary / secondary special", "4", c)
+e<-sub("Higher education", "5", d)
+education<-as.numeric(e)
+
+a<-sub("Civil marriage", "1", application1$NAME_FAMILY_STATUS)
+b<-sub("Married", "2", a)
+c<-sub("Single / not married", "3", b)
+d<-sub("Separated", "4", c)
+e<-sub("Widow", "5", d)
+marital<-as.numeric(e)
+
+a<-sub("Rented apartment", "1", application1$NAME_HOUSING_TYPE)
+b<-sub("House / apartment", "2", a)
+c<-sub("Municipal apartment", "3", b)
+d<-sub("With parents", "4", c)
+e<-sub("Co-op apartment", "5", d)
+f<-sub("Office apartment", "6", e)
+housing<-as.numeric(f)
+
+index<-application1$INDEX
+num_child<-application1$CNT_CHILDREN
+ann_income<-application1$AMT_INCOME_TOTAL
+
+newdata<-data.frame(index, gender, num_child, ann_income, education, marital, housing)
+head(newdata)
+```
+
+Then we construct the summary of "application1.csv" with the summary function.
+
+```{r}
+summary(newdata)
+```
+
+The histograms of all feature are hence drawn below.
+
+```{r}
+par(mfrow=c(2, 3))
+hist(gender, main="Gender")
+hist(num_child, main="Number of Children")
+hist(ann_income, main="Annual Income")
+hist(education, main="Education Level")
+hist(marital, main="Marital Status")
+hist(housing, main="Ways of Living")
+par()
+```
+
+We coud also get the matrix of scatterplots related to the "application1.csv", which is shown below.
+
+```{r}
+pairs(newdata)
+```
+
+
+### 1.-Statistical Tests based Approaches:
+
+#### a) Dixon test (small sample size)
+
+Here we test the first 30 rows of the feature "Annual Income".
+
+```{r}
+x<-newdata[1:30,4]
+dixon.test(x,type=0,opposite=TRUE)
+```
+
+Since the data set we use in our project is really large, it is obvious that it would not fit the Dixon test which is fro small sample size. We would not use this method for our data set.
+
+
+#### b) Normalscore (Deviation with respect to the mean)
+
+```{r}
+x<-newdata[,2:7]
+#scores(X,type="z",prob=0.95)
+#Displaying first 10 scores
+scores(x,type="z",prob=0.95)[1:10,]
+```
+In the first 10 rows, the outliers are the first two values of ann_income, the last three values of marital ans the first two values of housing.
+
+
+#### c) Median Absolute Deviation (Deviation with respect to the median)
+
+```{r}
+x<-newdata[,2:7]
+#scores(X,type="mad",prob=0.95)
+#Displaying first 10 scores
+scores(x,type="mad",prob=0.95)[1:10,]
+```
+ Since there are null values in the test results, we could conculde that the MAD method is not suitable for our data set of credit crad approval.
+
+
+#### d) Interquantile range score
+
+```{r}
+x<-newdata[,2:7]
+#scores(X,type="iqr",lim=1)
+#Displaying first 10 scores
+scores(x,type="iqr",lim=1)[1:10,]
+```
+In the first ten rows, the outliers are: the first two values of ann_income and housing, all values of marital except the ninth value.
+
+
+### 2. Depth-based Approach:
+
+```{r}
+x<-newdata[,2:7]
+depthout(x,cutoff=0.05)
+```
+
+With the threshold as 0.05, there are 493 outliers.
+
+
+### 3. Deviation-based Approaches
+
+```{r}
+
+```
+
+### 4. Distance-based Approaches
+
+#### a) Outlier detection using Mahalanobis Distance
+
+```{r}
+x<-newdata[,2:7]
+maha(x,cutoff=0.9)
+```
+
+When the threshold is 0.9, there are 1,344 outliers.
+
+
+#### b) Outlier detection using k Nearest Neighbours Distance method
+
+```{r}
+nn(x,k=4)
+```
+
+When k is 4, there are 521 outliers.
+
+
+#### c) Outlier detection using kth Nearest Neighbour Distance method
+
+```{r}
+nnk(x,k=4)
+```
+
+When k is 4, there are 521 outliers.
+
+
+### 5. Density-based Approaches
+
+#### a) Outlier detection using Robust Kernal-based Outlier Factor(RKOF) algorithm
+
+This method is not suitable for our data set, so we would not use it here.
+
+
+#### b) Outlier detection using genralised dispersion
+
+```{r}
+x<-newdata[,2:7]
+disp(x,cutoff=0.99)
+```
+
+When the threshold is 0.99, there are 490 outliers.
+
+
+### 6. Join assessment of outlier detection methods using techniques described under 2 to 5.
+
+```{r}
+x<-newdata[,2:7]
+OutlierDetection(x)
+edit(OutlierDetection)
+```
+
+
+
+
