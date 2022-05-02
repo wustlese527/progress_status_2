@@ -26,11 +26,11 @@ Last updated:
 
 3) The ipynb files contain all the steps we have done in this project, including data preprocessing, brief analysis, model fitting and model performance.
    
-   The "ESE527-Vintage analysis.ipynb" is about how we decide the standard of "bad" customers. Eventually we chose those who past due more than 60 days as "bad".
+   a) The "ESE527-Vintage analysis.ipynb" is about how we decide the standard of "bad" customers. Eventually we chose those who past due more than 60 days as "bad".
    
-   The "ESE527-Credit card approval.ipynb" is about the brief data analysis, feature engineering and modeling processes. 
+   b) The "ESE527-Credit card approval.ipynb" is about the brief data analysis, feature engineering and modeling processes. 
    
-   Since we just started the modeling section, it will be changed often before the semester ends. Further changes may be: changes of models, hyperparameter tuning, cross-      validation, etc.
+      Since we just started the modeling section, it will be changed often before the semester ends. Further changes may be: changes of models, hyperparameter tuning, cross-validation, etc.
 
 ******
 Can Song and Miaoting Feng both clicked the github link from "Tutorial for Github Setup.pdf" at Canvas on March 6. 
