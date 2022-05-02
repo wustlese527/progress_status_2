@@ -2,8 +2,6 @@
 
 **Project Title: Forecast of Credit Card Approval Based on Vintage Analysis**
 
-
-
 Group name: Crazy Thursday
 
 Group member: Miaoting Feng, Can Song
@@ -16,15 +14,6 @@ Last updated:
 2022/3/30 progress_status_3
 
 2022/3/10 progress_status_2
-
-
-******
-Can Song and Miaoting Feng both clicked the github link from "Tutorial for Github Setup.pdf" at Canvas on March 6. 
-They then joined the Github organization of ESE527 SP2021 and failed to find ways out. 
-
-So here our group will have the link based on the Github organization of WUSTL ESE527 SP2021.
-
-Thank you for your understanding!
 
 ******
 1) The original data set includes two csv files - application_record.csv and credit_record.csv.
@@ -42,6 +31,11 @@ Thank you for your understanding!
    The "ESE527-Credit card approval.ipynb" is about the brief data analysis, feature engineering and modeling processes. 
    
    Since we just started the modeling section, it will be changed often before the semester ends. Further changes may be: changes of models, hyperparameter tuning, cross-      validation, etc.
-   
-   
-   
+
+******
+Can Song and Miaoting Feng both clicked the github link from "Tutorial for Github Setup.pdf" at Canvas on March 6. 
+They then joined the Github organization of ESE527 SP2021 and failed to find ways out. 
+So here our group will have the link based on the Github organization of WUSTL ESE527 SP2021.
+
+Thank you for your understanding!
+
