@@ -6,14 +6,6 @@ Group name: Crazy Thursday
 
 Group member: Miaoting Feng, Can Song
 
-******
-Last updated: 
-
-2022/5/1     practice 4
-
-2022/3/30    progress_status_3
-
-2022/3/10    progress_status_2
 
 ******
 1) The original data set includes two csv files - application_record.csv and credit_record.csv.
@@ -31,6 +23,23 @@ Last updated:
    b) The "ESE527-Credit card approval.ipynb" is about the brief data analysis, feature engineering and modeling processes. 
    
       Since we just started the modeling section, it will be changed often before the semester ends. Further changes may be: changes of models, hyperparameter tuning, cross-validation, etc.
+
+
+******
+Last updated: 
+
+2022/5/7     final report
+
+2022/5/1     practice 4
+
+2022/4/15    3/4 report
+
+2022/3/30    progress_status_3
+
+2022/3/11    midterom report
+
+2022/3/10    progress_status_2
+
 
 ******
 Can Song and Miaoting Feng both clicked the github link from "Tutorial for Github Setup.pdf" at Canvas on March 6. 
