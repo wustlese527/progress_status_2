@@ -27,6 +27,8 @@ Group member: Miaoting Feng, Can Song
 
 5) The png.files are the normalized confusion matrix reuslts of our models, in case the ipynv file fails to show the figures clearly.
 
+   There shoould be three png. files in total.
+
 
 ******
 Last updated: 
