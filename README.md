@@ -25,6 +25,8 @@ Group member: Miaoting Feng, Can Song
 
 4) The py. file is a copy of the "ESE527-Credit card approval.ipynb", in case the ipynb file fails to open and work properly.
 
+5) The png.files are the normalized confusion matrix reuslts of our models, in case the ipynv file fails to show the figures clearly.
+
 
 ******
 Last updated: 
