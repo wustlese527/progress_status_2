@@ -20,9 +20,10 @@ Group member: Miaoting Feng, Can Song
    
    a) The "ESE527-Vintage analysis.ipynb" is about how we decide the standard of "bad" customers. Eventually we chose those who past due more than 60 days as "bad".
    
-   b) The "ESE527-Credit card approval.ipynb" is about the brief data analysis, feature engineering and modeling processes. 
+   b) The "ESE527-Credit card approval.ipynb" is about the brief data analysis, feature engineering, hyperparameter tuning, modeling, and validation processes. 
    
-      Since we just started the modeling section, it will be changed often before the semester ends. Further changes may be: changes of models, hyperparameter tuning, cross-validation, etc.
+
+4) The py. file is a copy of the "ESE527-Credit card approval.ipynb", in case the ipynb file fails to open and work properly.
 
 
 ******
