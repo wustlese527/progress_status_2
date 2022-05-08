@@ -29,6 +29,7 @@ Group member: Miaoting Feng, Can Song
 
    There should be five png files in total, two for vintage analysis and three for confusion matrix.
 
+6) The pdf file named "527-final report" is the final report of our project and the same as the file we submitted on Gradescope.
 
 ******
 Last updated: 
